@@ -1,73 +1,124 @@
-# Welcome to your Lovable project
 
-## Project info
+# वाणी Yatra (Vāṇī Yatra) - Voice-Based Public Transport Query System
 
-**URL**: https://lovable.dev/projects/900feaf4-8846-4181-b587-a125d10bf60c
+An AI-powered, voice-based public transport query system that supports Kannada, Hindi, and English, and is deeply rooted in the principles of Indian Knowledge Systems (IKS).
 
-## How can I edit this code?
+## Overview
 
-There are several ways of editing your application.
+This project creates an intuitive voice interface for accessing bus/train timings, route information, and transit guidance, especially empowering those with limited digital or textual literacy. Users can speak their queries in their preferred language, and the system will understand their intent and provide relevant transportation information.
 
-**Use Lovable**
+## Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/900feaf4-8846-4181-b587-a125d10bf60c) and start prompting.
+- **Multilingual Voice Interface**: Supports Kannada, Hindi, and English
+- **Public Transport Queries**: Get information about buses, trains, and metros
+- **Cultural Context**: Understands landmark-based navigation and local context
+- **Accessible Design**: Simple, intuitive interface that works well on all devices
 
-Changes made via Lovable will be committed automatically to this repo.
+## Technology Stack
 
-**Use your preferred IDE**
+### Frontend
+- React with TypeScript
+- Tailwind CSS for styling
+- Shadcn UI components
+- Voice input and processing
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Backend (Reference Implementation)
+- Flask (Python)
+- SQLite for database
+- Render for deployment
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Setup and Installation
 
-Follow these steps:
+### Prerequisites
+- Node.js and npm
+- Dwani AI API key (sign up at [Dwani.ai](https://dwani.ai))
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Frontend Setup
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+1. Clone the repository:
+```bash
+git clone <your-repository-url>
+cd vani-yatra
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+2. Install dependencies:
+```bash
+npm install
+```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Run the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+4. Open your browser and navigate to `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+5. Add your Dwani AI API key in the Settings dialog within the app
 
-**Use GitHub Codespaces**
+### Backend Setup (For Full Implementation)
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Refer to the `backend_structure.md` file for detailed instructions on setting up the Flask backend.
 
-## What technologies are used for this project?
+## Integrating with Dwani AI
 
-This project is built with:
+This project uses the Dwani AI API for speech recognition and natural language understanding. To successfully integrate with Dwani AI:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1. Sign up for a Dwani AI account and obtain an API key
+2. Enter your API key in the app's settings
+3. The app will send audio recordings to the Dwani API for processing
+4. The API returns the transcript along with detected intents and entities
+5. The app uses this information to search for relevant transport routes
 
-## How can I deploy this project?
+## Project Structure
 
-Simply open [Lovable](https://lovable.dev/projects/900feaf4-8846-4181-b587-a125d10bf60c) and click on Share -> Publish.
+```
+project/
+├── src/
+│   ├── components/        # React components
+│   ├── hooks/             # Custom React hooks
+│   ├── pages/             # Page components
+│   ├── services/          # API services
+│   ├── App.tsx            # Main app component
+│   └── main.tsx           # Application entry point
+├── backend_structure.md   # Reference for backend implementation
+└── README.md              # Project documentation
+```
 
-## Can I connect a custom domain to my Lovable project?
+## Available Scripts
 
-Yes, you can!
+- `npm run dev` - Start the development server
+- `npm run build` - Build the production-ready application
+- `npm run preview` - Preview the production build locally
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Extending the Project
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Additional Languages
+To add more languages, extend the `LanguageSelector` component and add corresponding mock responses in the services.
+
+### Backend Integration
+Follow the guidance in `backend_structure.md` to implement a Flask backend that:
+1. Handles audio processing with Dwani AI
+2. Stores and retrieves transport route information
+3. Processes intents and entities to provide relevant responses
+
+### Cultural Context Enhancement
+Consider enhancing the system with:
+1. Landmark-based navigation database
+2. Festival calendar for culturally-aware routing
+3. Local dialect and expression handling
+
+## IKS Integration Points
+
+- **Semantic Models**: Leverage traditional direction and classification systems
+- **Linguistic Preservation**: Promote regional transport terms and expressions
+- **Cultural Awareness**: Align system behavior with local festivals and daily rhythms
+- **Traditional Knowledge Base**: Embed common navigation heuristics and local insight
+
+## License
+
+This project is open-source and available under the MIT License.
+
+## Acknowledgements
+
+- Dwani AI for multilingual speech processing capabilities
+- Indian Knowledge Systems for cultural and contextual framework
